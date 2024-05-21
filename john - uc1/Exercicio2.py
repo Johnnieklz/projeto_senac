@@ -1,10 +1,10 @@
-'''
+
 # ==================================================================== #
 
 #                       Classificação de Idade
 
 # ==================================================================== #
-
+'''
 crianca = adolescente = adulto = idoso = 0
 
 for n in range(5):
@@ -28,7 +28,7 @@ print("Idosos: ", idoso)
 
 # ==================================================================== #
 
-#                      Calculadora de Fatorial
+#                 Calculadora de Fatorial (Questão: 6)
 
 # ==================================================================== #
 '''
@@ -38,9 +38,9 @@ print("Calculadora de fatorial! \nInstruções: \n 1 - Digite o valor desejado \
 a = int(input("Digite o valor desejado: "))
 
 fatorial = math.factorial(a)
-print("Resultado: ", fatorial)
-'''
+print(f"Fatorial de {a} é de {fatorial}")
 
+'''
 # ==================================================================== #
 
 
@@ -56,13 +56,13 @@ carac = str(input("Digite alguma frase ou palavra: "))
 caracList = carac.split()
 contador = Counter(carac)
 print(contador)
- '''
+'''
 # ==================================================================== #   
     
 #                       Cadastro de Contatos    
     
 # ==================================================================== #
-'''   
+'''
 # Passo 1: Criar uma lista vazia para armazenar os contatos
 contatos = []
 
@@ -106,6 +106,58 @@ while True:
         break
     else:
         print("Opção inválida. Por favor, escolha uma opção válida.")
-
-
 '''
+# ==================================================================== #   
+    
+#                      Gerador de Senha (Questão: 7)
+    
+# ==================================================================== #
+'''
+import re
+
+def validar_senha(senha):
+    if (len(senha) >= 8 and 
+        re.search(r"[A-Z]", senha) and 
+        re.search(r"[a-z]", senha) and
+        re.search(r'\d', senha) and
+        re.sarch(r"[!@#$%¨&*()_-+/*?:;.,><{}]")):
+        return True
+    else:
+        return False
+print("Sua senha é: ", validar_senha)
+'''
+# ==================================================================== #   
+    
+#                      Lista de Compras (Questão: 5)
+    
+# ==================================================================== #
+
+def lista_de_compras():
+    compras = []
+    while True:
+        print("Menu da Lista de Compras! \n 1. Adicionar Item \n2. Remover Item \n3. Visualizar Item \n4. Sair")
+        escolha = input("Digite o número da opção desejada: ")
+        
+        if escolha =="1":
+            item = input("Digite o item que deva ser adicionado")
+            compras.append(item)
+        elif escolha =="2":
+            item = input("Digite o item que quer remover")
+            if item in compras:
+                compras.remove(item)
+            else: 
+                print("Item não encontrado!")
+                
+        elif escolha =="3":
+            print("Itens da Lista de Compras até Agora: ")
+            for item in compras:
+                print(item)
+        elif escolha == "4":
+            print("Saindo...")
+            break
+    
+        else: 
+            print("Opção Inválida. Tente novamente!")
+lista_de_compras()
+
+
